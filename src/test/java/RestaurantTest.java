@@ -70,19 +70,6 @@ class RestaurantTest {
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>PART 3: ORDER TOTAL CALCULATION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     //The following Test Case will pass
-    @Test
-    public void calculate_order_total_should_return_correct_sum_for_selected_items() {
-        restaurant.addToMenu("Sweet corn soup", 119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
-        restaurant.addToMenu("Sizzling brownie", 319);
-
-        List<String> selectedItems = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
-        int expectedTotal = 119 + 269; // 388
-
-        assertEquals(expectedTotal, restaurant.calculateOrderTotal(selectedItems));
-    }
-
-//    The following test case will fail.
 //    @Test
 //    public void calculate_order_total_should_return_correct_sum_for_selected_items() {
 //        restaurant.addToMenu("Sweet corn soup", 119);
@@ -90,11 +77,24 @@ class RestaurantTest {
 //        restaurant.addToMenu("Sizzling brownie", 319);
 //
 //        List<String> selectedItems = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
-//        int expectedTotal = 119 + 273; // 388
+//        int expectedTotal = 119 + 269; // 388
 //
-//        // This will fail initially because calculateOrderTotal method doesn't exist
 //        assertEquals(expectedTotal, restaurant.calculateOrderTotal(selectedItems));
 //    }
+
+//    The following test case will fail.
+    @Test
+    public void calculate_order_total_should_return_correct_sum_for_selected_items() {
+        restaurant.addToMenu("Sweet corn soup", 119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Sizzling brownie", 319);
+
+        List<String> selectedItems = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+        int expectedTotal = 119 + 273; // 388
+
+        // This will fail initially because calculateOrderTotal method doesn't exist
+        assertEquals(expectedTotal, restaurant.calculateOrderTotal(selectedItems));
+    }
 
     @Test
     public void calculate_order_total_should_return_zero_for_empty_order() {
